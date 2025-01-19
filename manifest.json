@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "BetterHokieSPA",
+    "version": "1.0.2",
+    "icons": {
+        "64": "images/64.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://selfservice.banner.vt.edu/ssb/*"
+
+            ],
+            "exclude_matches": [],
+            "css": ["styles.css"],
+            "js": ["content.js"]
+        }
+    ],
+    "action": {
+        "default_popup": "index.html"
+    },
+    "host_permissions": [
+        "https://selfservice.banner.vt.edu/ssb/*"
+    ],
+    "web_accessible_resources": [{
+        "resources": ["images/*", "fonts/*"],
+        "matches": ["https://selfservice.banner.vt.edu/*"]
+    }],
+    "author" : "Nathan Obcemea"
+    
+}
