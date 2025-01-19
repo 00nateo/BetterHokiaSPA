@@ -39,7 +39,7 @@ function load(){
 function tabIcon(){
     const icon = document.createElement('link');
     icon.rel = 'icon';
-    icon.href = chrome.runtime.getURL('images/64.png');
+    icon.href = chrome.runtime.getURL('./images/64.png');
     document.head.appendChild(icon);
 }
 
@@ -115,13 +115,13 @@ function rewording() {
 function addImage() {
     const wrapper = document.querySelector('.headerwrapperdiv');
     const img = document.createElement('img');
-    img.src = chrome.runtime.getURL("images/burrus.jpg");   
+    img.src = chrome.runtime.getURL("./images/burrus.jpg");   
     img.className = 'burrus';
     wrapper.appendChild(img);
 
     const vtheader = document.querySelector('.vtheader');
     const vtlogo = document.createElement('img');
-    vtlogo.src = chrome.runtime.getURL("images/vtlogo-gray.png");   
+    vtlogo.src = chrome.runtime.getURL("./images/vtlogo-gray.png");   
     vtlogo.className = 'vtlogo';
     vtheader.appendChild(vtlogo);
 }
