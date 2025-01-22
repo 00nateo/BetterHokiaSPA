@@ -11,7 +11,16 @@
                 "https://selfservice.banner.vt.edu/ssb/*"
 
             ],
-            "exclude_matches": [],
+            "exclude_matches": [
+                "https://selfservice.banner.vt.edu/ssb/HZSKVTSC.P_DispRequest",
+                "https://selfservice.banner.vt.edu/ssb/hzskfocs.P_DispMainPage",
+                "https://selfservice.banner.vt.edu/ssb/banner_info.get_curr_versions",
+                "https://selfservice.banner.vt.edu/ssb/hzrkhpsl.P_EntryHPSLNote",
+                "https://selfservice.banner.vt.edu/ssb/hzrkhpsl.P_EntryBrookingsNote",
+                "https://selfservice.banner.vt.edu/ssb/hzrkhpsl.P_EntryHorizonsBrookingsNote",
+                "https://selfservice.banner.vt.edu/ssb/hzrkhpsl.P_EntryVTCSOMNote",
+                "https://selfservice.banner.vt.edu/ssb/bwrktivw.P_TitleIVWithdraw"
+            ],
             "css": ["styles.css"],
             "js": ["content.js"]
         }
