@@ -18,7 +18,7 @@ function load(){
         // Remove inline styles on elements
         document.querySelectorAll('*').forEach(el => el.removeAttribute('style'));
 
-        // Add redesigned by message
+        // Add "redesigned by" message
         const header = document.createElement('h5');
         header.setAttribute('class', 'redesignMessage');
         header.textContent = 'Redesigned by Nathan Obcemea';
@@ -32,8 +32,7 @@ function load(){
         loadFont();
         //addIcons();
         tabIcon();
-        // fixTranscriptPage();
-        fix2();
+        fixTranscriptPage();
 }
 //Adds tab icon
 function tabIcon(){
@@ -156,24 +155,7 @@ function addIcons(){
     box2.appendChild(icon);
 
 }
-function fixTranscriptPage() {
-    document.querySelectorAll('.menuplaintable tbody tr .mpdefault').forEach(mpdefault => {
-        const itemsChildren = mpdefault.children;
-        const title = itemsChildren[1].textContent;
-        const firstLink = itemsChildren[0];
-        const span = itemsChildren[2];
-        console.log(title);
-        for (let i = 0; i < firstLink.children.length; i++) {
-            itemsChildren[1].append(firstLink.children[i]);
-            console.log("appended");
-        }
-        itemsChildren[0].remove();
-        if (span) {
-            mpdefault.appendChild(span);
-        }
-    });
-}
-function fix2(){
+function fixTranscriptPage(){
     if (window.location.href === "https://selfservice.banner.vt.edu/ssb/twbkwbis.P_GenMenu?name=bmenu.P_TranscriptMnu") {
         document.querySelectorAll('tr').forEach(row => {
             // Remove all <img> elements

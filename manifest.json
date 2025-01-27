@@ -1,10 +1,11 @@
 {
     "manifest_version": 3,
     "name": "BetterHokieSPA",
-    "version": "1.0.2",
+    "version": "1.0.4",
     "icons": {
         "64": "images/64.png"
     },
+    "description": "A Chrome extension that improves the design of HokieSPA.",
     "content_scripts": [
         {
             "matches": [

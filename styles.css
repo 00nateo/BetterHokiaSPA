@@ -5,30 +5,6 @@ ID Attributes
 Classes
 Elements
 
-
-/*
-hsl
-hue saturation lightness
-
-hue - 0-360 degree on color scale
-saturation intensity 0-100%
-lightness - brightness 0-100%
-
-
-3 font sizes
-1.25rem
-1rem
-0.85rem
-
-20px bold, 100%
-16px bold 100%
-14px regular 100%
-14px regular 65%
-
---h1: bold 10px/1em var(--ff);
-
-use line-height instead of margin
-*/
 /* Debugging */
 /* *{
   box-sizing: border-box;
@@ -41,7 +17,6 @@ use line-height instead of margin
     --stone: rgb(117, 120, 123);
 }
 body{ 
-    /*font-family: LatoWeb, "Lato Extended", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     font-family: 'AcherusGrotesque', sans-serif;
     line-height: 1.6;
     background-color: white;
@@ -54,17 +29,9 @@ h1{
     font-size: 1.5rem;
     margin: 0px;
 }
-img[name="Student - Hokie Spa (Banner 7.x) - w/bird"]{
-    width: 10%;
-    height: 10%;
-}
-img[name="web_transparent"]{
-    width: 0%;
-    height: 0%;
-}
 a{
     color: inherit;
-    text-decoration: none;
+    text-decoration: none; /* Remove underline */
 }
 /*view different semester button grades menu */
 .pagebodydiv .myvt-hidden-content .plaintable{
@@ -88,8 +55,14 @@ a{
 
 }
 form {
+  display: flex;
+  flex-direction: column;
   margin: 20px;
   padding: 20px;
+}
+form input{
+  justify-self: center;
+  width: 40%;
 }
 
 /* Items in menu box */
@@ -112,7 +85,8 @@ form {
 .mpdefault:hover{
   filter: brightness(90%);
   transform: scale(1.05);
-  cursor: pointer
+  cursor: pointer;
+  background-color: var(--orange);
 }
 /* New 3 grid menu */
 .menuplaintable tbody{
@@ -156,14 +130,15 @@ form {
 
 .vtlogo{
   padding-left: 50px;
-  margin: 25px;
-  height: auto;
-  width: 20%;
+  margin: 20px;
+  width: 11rem;
   filter: brightness(110%);
 }
-
-
-
+.headerlinksdiv{
+  display: flex;
+  justify-self: right;
+  align-self: right;
+}
 
 
 
@@ -188,105 +163,112 @@ form {
   background-color: var(--maroon);
   width: 100%;
   max-height: 10%;
-  justify-content: space-evenly;
   position: fixed;
+  justify-content: space-between;
+  align-items: center;
   z-index: 3;
 }
 .pageheaderlinks2 .plaintable {
-    display: flex; /* Use flexbox for alignment */
-    font-size: 1.2rem; /* Set font size */
-    justify-content: center; /* Center elements horizontally */
-    align-items: center; /* Center elements vertically */
-    padding-right: 50px;
-  }
-  
-  /* Style individual tab items */
-  .pageheaderlinks2 .taboff,
-  .pageheaderlinks2 .tabon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 15px 30px 15px 30px; /* Add padding for better spacing */
-    border-color: hsl(0, 0%, 0%);
-    color: var(--stone);
-    filter: brightness(150%);
-    border-radius: 10px; /* Rounded corners */
-    transition: filter 0.3s; /* Smooth transition for hover */
-  }
-  
-  /* Style for hover effect */
-  .pageheaderlinks2 .taboff:hover,
-  .pageheaderlinks2 .tabon:hover {
-    filter: brightness(85%);
-    cursor: pointer; /* Change cursor to pointer */
-  }
-  
-  /* Style for active tab (tabon) */
-  .pageheaderlinks2 .tabon {
-    color: var(--orange);
-  }
- 
-  /*Search bar, menu items*/
-  /* General styling for the container */
-  /* Styling the search bar */
-  .pldefault{
-    display: block;
-  }
-  .pldefault table tbody tr td{
-    padding: 2rem;
-    padding-top: 0rem;
+  display: flex; /* Use flexbox for alignment */
+  font-size: 1.2rem; /* Set font size */
+  justify-content: center; /* Center elements horizontally */
+  align-items: center; /* Center elements vertically */
+  padding-right: 50px;
+  white-space: nowrap; /* Prevent text wrapping */
+}
 
-  }
-  .headerlinksdiv2 {
-    width: 100%; /* Full width */
-    text-align: center; /* Center align the form contents */
-    padding: 10px; /* Add padding for spacing */
-    box-sizing: border-box; /* Include padding in the width calculation */
-  }
-  
-  .headerlinksdiv2 form {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center align form items */
-    gap: 10px; /* Add spacing between elements */
-  }
-  
-  .headerlinksdiv2 input[type="text"],
-  .headerlinksdiv2 input[type="submit"] {
-    width: 30%; /* Full width */
-    font-size: 11px; /* Enhance readability */
-    box-sizing: border-box;
-  }
-  
-  /* Styling the links */
-  .pageheaderlinks {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px; /* Add spacing above the links */
-    gap: 20px;
-  }
-  
-  .pageheaderlinks a {
-    display: inline-block; /* Ensure proper spacing around links */
-    font-size: 1.5rem; /* Consistent font size */
-    text-decoration: none; /* Remove underlines */
-    transition: color 0.3s; /* Smooth hover effect */
-  }
-  /* search label*/
- .fieldlabeltext{
-    font-size: 1rem;
- } 
-  .pageheaderlinks a:hover {
-    color: #0056b3; /* Darker color on hover */
-  }
+/* Style individual tab items */
+.pageheaderlinks2 .taboff,
+.pageheaderlinks2 .tabon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px 20px 15px 20px; /* Add padding for better spacing */
+  border-color: hsl(0, 0%, 0%);
+  color: var(--stone);
+  filter: brightness(150%);
+  border-radius: 10px; /* Rounded corners */
+  transition: filter 0.3s; /* Smooth transition for hover */
+}
+
+/* Style for hover effect */
+.pageheaderlinks2 .taboff:hover,
+.pageheaderlinks2 .tabon:hover {
+  filter: brightness(85%);
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+ /* Style for active tab (tabon) */
+.pageheaderlinks2 .tabon {
+  color: var(--orange);
+  border-bottom: 2px solid var(--orange);
+  border-radius: 0px;
+  width: 80%; /* Make the border take up 80% of the width */
+  margin: 0 auto; /* Center the border */
+}
+/*Search bar, menu items*/
+/* General styling for the container */
+/* Styling the search bar */
+.pldefault{
+  display: block;
+}
+.pldefault table tbody tr td{
+  padding: 2rem;
+  padding-top: 0rem;
+
+}
+.headerlinksdiv2 {
+  width: 100%; /* Full width */
+  text-align: center; /* Center align the form contents */
+  padding: 10px; /* Add padding for spacing */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.headerlinksdiv2 form {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center align form items */
+  gap: 10px; /* Add spacing between elements */
+}
+
+.headerlinksdiv2 input[type="text"],
+.headerlinksdiv2 input[type="submit"] {
+  width: 30%; /* Full width */
+  font-size: 11px; /* Enhance readability */
+  box-sizing: border-box;
+}
+
+/* Styling the links */
+.pageheaderlinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px; /* Add spacing above the links */
+  gap: 20px;
+}
+
+.pageheaderlinks a {
+  display: inline-block; /* Ensure proper spacing around links */
+  font-size: 1.5rem; /* Consistent font size */
+  text-decoration: none; /* Remove underlines */
+  transition: color 0.3s; /* Smooth hover effect */
+}
+/* search label*/
+.fieldlabeltext{
+  font-size: 1rem;
+} 
+.pageheaderlinks a:hover {
+color: #0056b3; /* Darker color on hover */
+}
 
 
-
-  /* General table styles */
+/* General table styles for forms */
 .datadisplaytable caption{
   padding: 20px;
+}
+.datadisplaytable .dddefault font{
+  font-size: 16px;
 }
 .dataentrytable {
   justify-content: left;
@@ -306,7 +288,6 @@ form {
   justify-self: left;
   align-items: left;
   align-self: left;
-
 }
 
 /* Table header styles */
@@ -315,37 +296,72 @@ form {
   color: #fff;
   text-align: center;
   font-weight: bold;
-  padding: 10px;
 }
 
-/* Default cell styles */
+
+/* Default cell styles within table */
 .dedefault[rowspan="13"]{
   width: 20%;
 }
 .dedefault {
-  padding: 10px;
   border-bottom: 1px solid #ddd;
   vertical-align: middle;
+}
+.dedefault select{
+  padding: 8px;
+  border-radius: 10px;
+  border: 1.5px solid black;
 }
 .delabel{
   padding: 10px;
 }
+.tablein2{
+  display: flex;
+  border-spacing: 20px;
+  justify-content: space-between;
+  margin: 20px;
+  gap: 20px;
+
+}
+.tablein2 tr{
+  margin: 5px;
+}
+select[name="term_in"]{
+  display: flex;
+  margin: 20px;
+  height: 2.5rem;
+  width: 50%;
+  justify-self: center;
+  align-self: center;
+  border: 3px solid var(--maroon);
+  text-align: center;
+  border-radius: 10px;
+}
+.tablein2 .leftaligntext,
+.tablein2 .rightaligntext{
+  font-size: 1.5rem;
+}
+li{
+  border-bottom: 3px solid var(--orange);
+  padding: 10px;
+}
+
 
 /* Input field styles */
 input[type="text"] {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   font-size: 14px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
   outline: none;
   transition: border-color 0.3s ease;
+  border-radius: 10px;
 }
 
 input[type="text"]:focus {
   border-color: var(--maroon);
 }
+
 
 /* Button styles */
 input[type="button"],
@@ -359,6 +375,9 @@ input.btn {
   color: white;
   cursor: pointer;
   transition: filter 0.3s ease, transform 0.3s ease;
+  justify-self: center;
+  align-self: center;
+  margin: 10px;
 }
 
 input[type="button"]:hover,
@@ -372,11 +391,17 @@ input.btn:hover {
 input.btn:active {
   background-color: var(--stone);
 }
+input[value="  Calculate  "]{
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+}
 
 /* Highlight text */
 .textbig, .textbig2, .textred {
   font-weight: bold;
   color: var(--orange);
+  width: 100%;
 }
 
 /* Error or notice text */
@@ -398,21 +423,6 @@ input.btn:active {
   color: var(--maroon);
 }
 
-/* Responsive design 
-@media (max-width: 600px) {
-  .dataentrytable {
-    font-size: 12px;
-  }
-
-  input[type="text"] {
-    font-size: 12px;
-  }
-
-  input.btn {
-    font-size: 12px;
-    padding: 8px 12px;
-  }
-}*/
 
 /* End of Page */
 .pagefooterlinks a[href="/ssb/bwgkoemr.P_SelectEmrgContacts"]{
@@ -433,4 +443,14 @@ input.btn:active {
 .redesignMessage,
 .banner_copyright{
   padding: 0px 20px 0px 20px;
+}
+
+
+/* Return to login button */
+.myvt-hidden-content a[href="twbkwbis.p_idm_login"]{
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  width: 50%;
+
 }
