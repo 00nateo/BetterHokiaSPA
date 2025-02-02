@@ -33,6 +33,7 @@ function load(){
         //addIcons();
         tabIcon();
         fixTranscriptPage();
+        addThemeToggle();
 }
 //Adds tab icon
 function tabIcon(){
@@ -80,7 +81,10 @@ function rewording() {
     }
     document.querySelectorAll('.skiplinks').forEach(
         link => link.remove());
-    document.querySelector('.pagetitlediv').remove();
+    const pagetitlediv = document.querySelector('.pagetitlediv');
+    if(pagetitlediv){
+        pagetitlediv.remove();
+    }
     // Select the form element
     const form = document.querySelector('form');
 
@@ -193,4 +197,41 @@ function fixTranscriptPage(){
     }
      
     
+}
+function addThemeToggle() {
+    const pageHeaderDiv = document.querySelector('.pldefault .plaintable tbody tr');
+    const label = document.createElement('label');
+    const themeToggle = document.createElement('input');
+    const slider = document.createElement('span');
+
+    label.className = 'switch';
+    themeToggle.type = 'checkbox';
+    slider.className = 'slider';
+
+    label.appendChild(themeToggle);
+    label.appendChild(slider);
+    pageHeaderDiv.appendChild(label);
+
+    // Add event listener to toggle theme
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    });
+
+    // Load the initial theme based on user preference or default to light
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    themeToggle.checked = currentTheme === 'dark';
+
+    // Save the user's theme preference
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
 }

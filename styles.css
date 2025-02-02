@@ -11,6 +11,14 @@ Elements
   border: 1px solid lime;
 } */
 
+html[data-theme="dark"]{
+  --bg-color: #121212;
+  --text-color: white;
+}
+html[data-theme="light"]{
+  --bg-color: white;
+  --text-color: black;
+}
 :root{
     --orange: rgb(232,119,34);
     --maroon: rgb(134,31,65);
@@ -19,8 +27,11 @@ Elements
 body{ 
     font-family: 'AcherusGrotesque', sans-serif;
     line-height: 1.6;
-    background-color: white;
+    /* background-color: white; */
     margin: 0px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    /* transition: background-color 0.3s; */
 
 }
 h1{
@@ -105,6 +116,15 @@ form input{
   padding: 0.6rem;
   margin: 2rem;
   position: relative;
+}
+
+@media (max-width: 950px) {
+  .menuplaintable tbody {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .menuplaintable tbody td {
+    flex: 1 1 calc(50% - 10px);
+  }
 }
 /*Box title*/
 .menuplaintable tbody td a{
@@ -281,6 +301,7 @@ color: #0056b3; /* Darker color on hover */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
+  color: var(--text-color);
 }
 .dataentrytable p{
   padding: 10px;
@@ -412,7 +433,7 @@ input[value="  Calculate  "]{
 
 /* Table row hover effect */
 .dataentrytable tr:hover {
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
 }
 .delabel span{
   font-weight: bold;
@@ -453,4 +474,202 @@ input[value="  Calculate  "]{
   justify-self: center;
   width: 50%;
 
+}
+
+/* Dark mode styles 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  h1 {
+    color: var(--orange);
+  }
+  a {
+    color: var(--orange);
+  }
+  .pagebodydiv {
+    border-color: #333;
+  }
+  .infotextdiv {
+    border-color: #333;
+  }
+  .mpdefault {
+    background-color: var(--maroon);
+    filter: brightness(90%);
+    color: #e0e0e0;
+  }
+  .mpdefault:hover {
+    background-color: var(--orange);
+  }
+  .menuplaintable tbody td {
+    border-color: #444;
+  }
+  .pageheaderdiv1 {
+    background-color: #121212;
+  }
+  .pageheaderlinks2 .taboff,
+  .pageheaderlinks2 .tabon {
+    border-color: #444;
+    color: #e0e0e0;
+  }
+  .pageheaderlinks2 .tabon {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+  }
+  .dataentrytable {
+    background-color: #333;
+    color: #e0e0e0;
+  }
+  .dataentrytable .dedefault {
+    border-color: #444;
+  }
+  input[type="text"] {
+    background-color: #333;
+    color: #e0e0e0;
+    border-color: #444;
+  }
+  input[type="text"]:focus {
+    border-color: var(--orange);
+  }
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"],
+  input.btn {
+    background-color: #333;
+    color: #e0e0e0;
+  }
+  input.btn:active {
+    background-color: var(--stone);
+  }
+  .pagefooterlinks a {
+    background-color: #333;
+    color: #e0e0e0;
+  }
+}
+
+/* Light mode styles
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: white;
+    color: black;
+  }
+  h1 {
+    color: var(--orange);
+  }
+  a {
+    color: inherit;
+  }
+  .pagebodydiv {
+    border-color: var(--stone);
+  }
+  .infotextdiv {
+    border-color: var(--stone);
+  }
+  .mpdefault {
+    background-color: var(--maroon);
+    color: white;
+  }
+  .mpdefault:hover {
+    background-color: var(--orange);
+  }
+  .menuplaintable tbody td {
+    border-color: black;
+  }
+  .pageheaderdiv1 {
+    background-color: var(--maroon);
+  }
+  .pageheaderlinks2 .taboff,
+  .pageheaderlinks2 .tabon {
+    border-color: hsl(0, 0%, 0%);
+    color: var(--stone);
+  }
+  .pageheaderlinks2 .tabon {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+  }
+  .dataentrytable {
+    background-color: white;
+    color: black;
+  }
+  .dataentrytable .dedefault {
+    border-color: #ddd;
+  }
+  input[type="text"] {
+    background-color: white;
+    color: black;
+    border-color: #ccc;
+  }
+  input[type="text"]:focus {
+    border-color: var(--maroon);
+  }
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"],
+  input.btn {
+    background-color: var(--maroon);
+    color: white;
+  }
+  input.btn:active {
+    background-color: var(--stone);
+  }
+  .pagefooterlinks a {
+    background-color: var(--maroon);
+    color: white;
+  }
+} */
+
+/* Dark mode toggle */
+/* From Uiverse.io by alexruix */ 
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position:absolute; 
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+  margin-top: 10px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  --background: #121212;
+  position:absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background);
+  transition: .5s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 50%;
+  left: 10%;
+  bottom: 15%;
+  box-shadow: inset 8px -4px 0px 0px #fff000;
+  background: var(--background);
+  transition: .5s;
+}
+
+input:checked + .slider {
+  background-color: white;
+}
+
+input:checked + .slider:before {
+  transform: translateX(100%);
+  box-shadow: inset 15px -4px 0px 15px #fff000;
 }
