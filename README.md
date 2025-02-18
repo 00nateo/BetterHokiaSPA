@@ -1,5 +1,7 @@
 Improves UI of HokieSPA!
-Issues 1/22/2025
+Ignore Commented Out JS files
+
+Issues 2/18/2025
 Excludes: 
 Timetable of Classes
 Faculty Online Creentials
