@@ -174,8 +174,10 @@ form input{
 }
 
 .pagebodydiv{
-  margin: 10px;
+  margin: 20px;
+  margin-top: 30px;
   border: 3px solid var(--stone);
+  border-radius: 10px;
   padding: 20px 30px 20px 30px;
 }
 .pageheaderdiv1{
@@ -351,7 +353,7 @@ select[name="term_in"]{
   display: flex;
   margin: 20px;
   height: 2.5rem;
-  width: 50%;
+  width: 80%;
   justify-self: center;
   align-self: center;
   border: 3px solid var(--maroon);
@@ -626,9 +628,9 @@ input[value="  Calculate  "]{
   font-size: 17px;
   position:absolute; 
   display: inline-block;
-  width: 3.5em;
-  height: 2em;
-  margin-top: 10px;
+  width: 3em;
+  height: 1.5em;
+  margin-top: 15px;
 }
 
 /* Hide default HTML checkbox */
@@ -640,7 +642,7 @@ input[value="  Calculate  "]{
 
 /* The slider */
 .slider {
-  --background: #121212;
+  --background: #232323;
   position:absolute;
   cursor: pointer;
   top: 0;
@@ -655,21 +657,23 @@ input[value="  Calculate  "]{
 .slider:before {
   position: absolute;
   content: "";
-  height: 1.4em;
-  width: 1.4em;
+  height: 1em;
+  width: 1em;
   border-radius: 50%;
   left: 10%;
-  bottom: 15%;
-  box-shadow: inset 8px -4px 0px 0px #fff000;
+  bottom: 17%;
+  box-shadow: inset 6px -4px 0px 0px rgb(97, 210, 255);
   background: var(--background);
   transition: .5s;
 }
 
 input:checked + .slider {
-  background-color: white;
+  background-color: #232323; 
+  /* background-color: var(--orange);  */
+  /* filter: brightness(80%); */
 }
 
 input:checked + .slider:before {
-  transform: translateX(100%);
-  box-shadow: inset 15px -4px 0px 15px #fff000;
+  transform: translateX(140%);
+  box-shadow: inset 15px -4px 0px 15px rgb(255, 213, 0); 
 }
